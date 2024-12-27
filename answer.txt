@@ -1,0 +1,22 @@
+a. Câu lệnh để cài đặt email và name là gì?
+- git config --global user.email 'youremail@example.com'
+- git config --global user.name 'Your Name'
+
+
+b. Setup lại name của bạn về "Udemy - <tên của bạn>"
+- git config --global user.name "Udemy - Nguyen Viet Dung"
+
+
+c. Commit
+- git add answer.txt
+- git commit -m "Added answer.txt with Git config details"
+
+
+d. Tạo repo mới trên GitHub với tên git-course và push code của bài 2 lên GitHub
+- Tạo repository mới với tên git-course trên GitHub
+- Kết nối repo cục bộ với GitHub: git remote add origin <URL_repo_GitHub>
+- Push code lên GitHub:
+  git branch -M main
+  git push -u origin main
+
+

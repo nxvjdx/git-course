@@ -1,0 +1,74 @@
+1. Giải thích các câu lệnh:
+- git commit --amend:
+  Sử dụng để sửa đổi commit cuối cùng, có thể cập nhật message hoặc thêm/xóa file từ commit.
+
+- git commit --amend -m"<message>":
+  Sử dụng để sửa đổi message của commit cuối cùng.
+
+- git restore --staged <file>:
+  Xóa một file khỏi "Staging Area" mà không xóa file đó khỏi thư mục làm việc (working directory).
+
+- git reset HEAD~1:
+  Quay lại trạng thái trước commit gần nhất (HEAD~1), giữ lại các thay đổi trong working directory.
+
+2. Kết quả của các lệnh Git:
+
+- a. Tạo 3 file: file1, file2, file3
+  Working Directory: file1, file2, file3
+
+- b. Chạy lệnh: git init
+  Working Directory: file1, file2, file3
+
+- c. Chạy lệnh: git commit -m"init project"
+  Working Directory: file1, file2, file3
+  Staging Area: (rỗng)
+  Repository: (không có file nào được commit vì chưa chạy git add)
+
+- d. Chạy lệnh: git add file1
+  Working Directory: file2, file3
+  Staging Area: file1
+  Repository: (rỗng)
+
+- e. Chạy lệnh: git commit -m"add file"
+  Working Directory: file2, file3
+  Staging Area: (rỗng)
+  Repository: file1
+
+- f. Chạy lệnh: git add .
+  Working Directory: (rỗng)
+  Staging Area: file2, file3
+  Repository: file1
+
+- g. Chạy lệnh: git restore --staged file2
+  Working Directory: file2
+  Staging Area: file3
+  Repository: file1
+
+- h. Chạy lệnh: git commit -m"add all files"
+  Working Directory: (rỗng)
+  Staging Area: (rỗng)
+  Repository: file1, file3
+
+- i. Chạy lệnh: git reset HEAD~1
+  Working Directory: file3
+  Staging Area: file3
+  Repository: file1
+
+3. Kết quả của các lệnh Git (folder `lesson-3-git`):
+- a. Chạy lệnh git init
+  Working Directory: (rỗng)
+
+- b. Tạo file file1.txt, file2.txt, oops/file3.txt
+  Working Directory: file1.txt, file2.txt, oops/file3.txt
+
+- c. Thêm file .gitignore, nội dung:
+  Working Directory: file1.txt, file2.txt, oops/file3.txt, .gitignore
+
+- d. Chạy lệnh git add .
+Working Directory: file1.txt, oops/file3.txt
+Staging Area: file2.txt, .gitignore
+
+- e. Chạy lệnh git commit -m"init project"
+Working Directory: file1.txt, oops/file3.txt
+Staging Area: (rỗng)
+Repository: file2.txt, .gitignore
